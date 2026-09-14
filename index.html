@@ -1,0 +1,1005 @@
+<title>마이파트너(My Partner) 메리츠캐피탈 제안</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;700;900&family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a1a1a;
+    --ink-soft:#63666b;
+    --paper:#ffffff;
+    --paper-sunken:#f4f6f9;
+    --paper-raised:#ffffff;
+    --steel:#818a9b;
+    --steel-soft:#a7aebb;
+    --accent:#ee3722;
+    --accent-deep:#c92a17;
+    --accent-tint:#fdece7;
+    --positive:#1f8f63;
+    --positive-tint:#e2f3ea;
+    --line:#e5e8ee;
+    --line-strong:#d2d7e1;
+    --shadow:0 14px 32px -20px rgba(20,35,55,0.28);
+    --navy:#1b2f47;
+    --navy-deep:#0f1e30;
+    --navy-raised:#25415f;
+    --navy-ink:#1b2f47;
+    color-scheme:light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#eef0f3;
+      --ink-soft:#c3c9d6;
+      --paper:#0b121c;
+      --paper-sunken:#0e1622;
+      --paper-raised:#161f2d;
+      --steel:#8a92a3;
+      --steel-soft:#6b7484;
+      --accent:#ff6b4d;
+      --accent-deep:#ff8f74;
+      --accent-tint:#3a2019;
+      --positive:#3fcf95;
+      --positive-tint:#123527;
+      --line:rgba(255,255,255,0.12);
+      --line-strong:rgba(255,255,255,0.22);
+      --shadow:0 18px 40px -24px rgba(0,0,0,0.6);
+      --navy:#24374f;
+      --navy-deep:#070d16;
+      --navy-raised:#2c4160;
+      --navy-ink:#9fb4d1;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#eef0f3;
+    --ink-soft:#c3c9d6;
+    --paper:#0b121c;
+    --paper-sunken:#0e1622;
+    --paper-raised:#161f2d;
+    --steel:#8a92a3;
+    --steel-soft:#6b7484;
+    --accent:#ff6b4d;
+    --accent-deep:#ff8f74;
+    --accent-tint:#3a2019;
+    --positive:#3fcf95;
+    --positive-tint:#123527;
+    --line:rgba(255,255,255,0.12);
+    --line-strong:rgba(255,255,255,0.22);
+    --shadow:0 18px 40px -24px rgba(0,0,0,0.6);
+    --navy:#24374f;
+    --navy-deep:#070d16;
+    --navy-raised:#2c4160;
+    --navy-ink:#9fb4d1;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;} }
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Gothic A1', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    font-feature-settings:"tnum" 1;
+    -webkit-font-smoothing:antialiased;
+    padding:0 20px;
+  }
+  .wrap{ max-width:1120px; margin:0 auto; }
+  section{ padding-block: 76px; }
+  section.tight{ padding-block:56px; }
+
+  h1,h2,h3{ font-family:'Gothic A1',sans-serif; font-weight:900; text-wrap:balance; margin:0; line-height:1.28; letter-spacing:-0.01em; }
+  h2{ font-size:clamp(1.5rem, 1.1rem + 1.7vw, 2.15rem); color:var(--ink); }
+  h3{ font-size:1.15rem; }
+  p{ font-family:'Nanum Gothic',sans-serif; line-height:1.75; color:var(--ink-soft); margin:0; }
+  .measure{ max-width:62ch; }
+  strong{ color:var(--ink); font-weight:700; }
+  .num{ font-variant-numeric:tabular-nums; }
+
+  a{ color:inherit; }
+  button{ font-family:inherit; }
+
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:7px;
+    font-size:0.74rem; font-weight:800; letter-spacing:0.01em;
+    color:var(--accent-deep); background:var(--accent-tint);
+    padding:6px 14px 6px 11px; border-radius:999px; margin-bottom:16px;
+  }
+  .eyebrow::before{ content:""; width:6px; height:6px; border-radius:50%; background:var(--accent); flex:none; }
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    background:color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-row{
+    max-width:1120px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 0; gap:20px;
+  }
+  .brand{ display:flex; flex-direction:column; font-weight:700; font-size:0.98rem; white-space:nowrap; }
+  .brand small{ font-weight:500; font-size:0.68rem; color:var(--steel-soft); letter-spacing:0.03em; }
+  .nav-links{ display:flex; gap:22px; overflow-x:auto; scrollbar-width:none; }
+  .nav-links::-webkit-scrollbar{ display:none; }
+  .nav-links a{
+    font-size:0.86rem; font-weight:500; color:var(--steel); text-decoration:none; white-space:nowrap;
+    padding:6px 2px; border-bottom:2px solid transparent;
+  }
+  .nav-links a:hover, .nav-links a:focus-visible{ color:var(--ink); border-color:var(--accent); }
+  .nav-cta{
+    flex:none; background:var(--accent); color:#fff; font-weight:700; font-size:0.84rem;
+    padding:9px 16px; border-radius:999px; text-decoration:none; white-space:nowrap; border:none; cursor:pointer;
+  }
+  .nav-cta:hover{ background:var(--accent-deep); }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:var(--paper-sunken); color:var(--ink);
+    margin:0 -20px; padding:60px 20px 56px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero .wrap{ display:flex; flex-direction:column; align-items:center; text-align:center; gap:26px; }
+  .hero h1{ font-size:clamp(2rem, 1.4rem + 2.8vw, 3.15rem); color:var(--ink); }
+  .hero .accent-line{ color:var(--navy-ink); display:block; font-size:0.62em; margin-top:10px; }
+  .hero p.lede{ font-size:1.03rem; color:var(--ink-soft); max-width:64ch; }
+  .hero-ctas{ display:flex; gap:12px; flex-wrap:wrap; margin-top:4px; justify-content:center; }
+  .hero .stat-row{ align-self:stretch; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px; text-decoration:none;
+    padding:13px 22px; border-radius:9px; font-weight:700; font-size:0.92rem; cursor:pointer; border:1px solid transparent;
+  }
+  .btn-primary{ background:var(--navy); color:#fff; }
+  .btn-primary:hover{ background:var(--navy-deep); }
+  .btn-ghost{ background:var(--paper-raised); color:var(--navy-ink); border-color:var(--line-strong); }
+  .btn-ghost:hover{ border-color:var(--navy-ink); }
+
+  .stat-row{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line); border-radius:14px; overflow:hidden;
+    margin-top:8px; box-shadow:var(--shadow);
+  }
+  .stat-tile{ background:var(--paper-raised); padding:22px 18px; }
+  .stat-tile .v{ font-family:'Gothic A1',sans-serif; font-weight:900; font-size:clamp(1.5rem,1.1rem+1.4vw,2.1rem); color:var(--navy-ink); }
+  .stat-tile.hi .v{ color:var(--accent); }
+  .stat-tile .l{ font-size:0.8rem; color:var(--steel); margin-top:6px; line-height:1.4; }
+  @media (max-width:760px){ .stat-row{ grid-template-columns:repeat(2,1fr); } }
+
+  /* ---------- SECTION HEAD ---------- */
+  .section-head{ display:flex; flex-direction:column; gap:14px; margin-bottom:36px; }
+  .section-head p{ font-size:1rem; }
+
+  /* ---------- QUOTE ---------- */
+  .quote-block{
+    background:var(--paper-sunken); border:1px solid var(--line); border-radius:16px;
+    padding:32px clamp(20px,4vw,44px);
+  }
+  .quote-block q{ font-family:'Gothic A1',sans-serif; font-weight:800; font-size:clamp(1.1rem,1rem+0.6vw,1.4rem); line-height:1.5; color:var(--ink); quotes:none; display:block; margin-bottom:10px; }
+  .quote-block .quote-sub{ color:var(--accent-deep); font-weight:700; font-size:0.95rem; }
+
+  .bridge{ margin-top:28px; display:grid; grid-template-columns:1.1fr 0.9fr; gap:32px; align-items:start; }
+  @media (max-width:820px){ .bridge{ grid-template-columns:1fr; } }
+  .bridge-note{
+    background:var(--accent-tint); border:1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+    border-radius:14px; padding:20px 22px;
+  }
+  .bridge-note p{ color:var(--ink); }
+  .benefit-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:14px; }
+  .benefit-list li{ display:flex; gap:12px; align-items:flex-start; }
+  .benefit-list .tick{
+    flex:none; width:22px; height:22px; border-radius:50%; background:var(--positive-tint); color:var(--positive);
+    display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:900; margin-top:2px;
+  }
+  .benefit-list span.t{ color:var(--ink); font-weight:700; }
+  .benefit-list p{ margin-top:2px; font-size:0.92rem; }
+
+  /* ---------- CARDS ---------- */
+  .card-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  @media (max-width:900px){ .card-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:620px){ .card-grid{ grid-template-columns:1fr; } }
+  .card-grid.two{ grid-template-columns:repeat(2,1fr); }
+  @media (max-width:700px){ .card-grid.two{ grid-template-columns:1fr; } }
+
+  .card{
+    background:var(--paper-raised); border:1px solid var(--line); border-radius:14px; padding:22px;
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .card .icon{
+    width:38px; height:38px; border-radius:9px; background:var(--navy); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-size:1.05rem; font-weight:700;
+  }
+  .card-grid .card:nth-child(3n+2) .icon{ background:var(--accent); }
+  .card h3{ font-family:'Gothic A1',sans-serif; font-weight:700; font-size:1.02rem; color:var(--ink); }
+  .card p{ font-size:0.9rem; }
+  .card .metric{ margin-top:auto; padding-top:12px; border-top:1px solid var(--line); display:flex; justify-content:space-between; align-items:baseline; }
+  .card .metric .k{ font-size:0.78rem; color:var(--steel-soft); }
+  .card .metric .v{ font-weight:900; color:var(--accent-deep); font-size:1.05rem; }
+
+  .dark-card{
+    background:var(--navy-raised); border:1px solid rgba(255,255,255,0.1); border-radius:14px; padding:22px; color:#e7e5e0;
+  }
+  .dark-card .icon{
+    width:38px; height:38px; border-radius:9px; color:#fff; font-size:1.1rem;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .dark-card h3{ color:#faf7f2; }
+  .dark-card p{ color:#b7bcc7; font-size:0.92rem; }
+  .pill{ display:inline-block; font-size:0.72rem; font-weight:700; padding:4px 11px; border-radius:999px; }
+  .pill-accent{ background:rgba(238,55,34,0.18); color:#ff9d84; }
+
+  /* ---------- ALT SECTION ---------- */
+  .section-alt{ background:var(--navy); color:#e7e5e0; margin:0 -20px; padding:76px 20px; }
+  .section-alt .wrap{ }
+  .section-alt h2{ color:#faf7f2; }
+  .section-alt p{ color:#b7bcc7; }
+  .section-alt .eyebrow{ color:var(--accent-deep); }
+
+  /* ---------- CHART ---------- */
+  .chart-card{
+    background:var(--paper-raised); border:1px solid var(--line); border-radius:16px; padding:26px clamp(16px,3vw,30px);
+    display:grid; grid-template-columns:1.3fr 1fr; gap:30px; align-items:center;
+  }
+  @media (max-width:860px){ .chart-card{ grid-template-columns:1fr; } }
+  .chart-legend{ display:flex; gap:18px; font-size:0.82rem; color:var(--steel); margin-bottom:18px; }
+  .chart-legend .dot{ width:10px; height:10px; border-radius:2px; display:inline-block; margin-right:6px; }
+  .chart{ display:flex; align-items:flex-end; gap:clamp(10px,2vw,26px); height:230px; border-bottom:1px solid var(--line); padding-bottom:0; }
+  .chart-col{ flex:1; display:flex; flex-direction:column; align-items:center; gap:8px; height:100%; justify-content:flex-end; }
+  .bars{ display:flex; align-items:flex-end; gap:13px; height:100%; }
+  .bar{ width:18px; border-radius:4px 4px 0 0; position:relative; }
+  .bar .val{ position:absolute; top:-18px; left:50%; transform:translateX(-50%); font-size:0.58rem; font-weight:700; white-space:nowrap; color:var(--steel); }
+  .bar.std{ background:var(--line-strong); }
+  .bar.cns{ background:var(--accent); }
+  .bar.cns .val{ color:var(--accent-deep); }
+  .chart-col .cat{ font-size:0.76rem; color:var(--steel-soft); text-align:center; }
+
+  .chart-aside{ display:flex; flex-direction:column; gap:16px; }
+  .chart-aside .big{ font-family:'Gothic A1',sans-serif; font-weight:900; font-size:2.6rem; color:var(--accent-deep); line-height:1; }
+  .chart-aside p{ font-size:0.9rem; }
+
+  /* ---------- TABLE ---------- */
+  .table-scroll{ overflow-x:auto; border:1px solid var(--line); border-radius:14px; }
+  table{ width:100%; border-collapse:collapse; min-width:640px; font-size:0.86rem; }
+  thead th{
+    background:var(--navy); color:#f0ede7; text-align:left; padding:12px 14px; font-weight:700;
+    white-space:nowrap; position:sticky; top:0;
+  }
+  tbody td{ padding:11px 14px; border-top:1px solid var(--line); color:var(--ink-soft); white-space:nowrap; }
+  tbody tr:nth-child(odd){ background:color-mix(in srgb, var(--paper) 55%, var(--paper-raised)); }
+  .col-hi{ background:var(--accent-tint) !important; color:var(--ink) !important; font-weight:700; }
+  th.col-hi{ background:var(--accent) !important; color:#fff !important; }
+  td.num, th.num{ text-align:right; font-variant-numeric:tabular-nums; }
+  .badge-good{ color:var(--positive); font-weight:700; }
+  .badge-bad{ color:var(--steel-soft); }
+  .table-note{ margin-top:12px; font-size:0.8rem; color:var(--steel-soft); }
+
+  .compare-table{ min-width:0; table-layout:fixed; font-size:0.82rem; }
+  .compare-table th, .compare-table td{ white-space:normal; word-break:keep-all; text-align:center; padding:11px 10px; line-height:1.4; }
+  .compare-table th:nth-child(1), .compare-table th:nth-child(2),
+  .compare-table td:nth-child(1), .compare-table td:nth-child(2){ text-align:left; }
+
+  .chip-row{ display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+  .chip{ border:1px solid var(--line-strong); border-radius:999px; padding:8px 16px; font-size:0.85rem; font-weight:700; color:var(--ink-soft); background:var(--paper-raised); }
+
+  /* ---------- LINKONE DEMO ---------- */
+  .demo-panel{
+    background:var(--navy-raised); border:1px solid rgba(255,255,255,0.1); border-radius:16px; overflow:hidden; color:#e7e5e0;
+  }
+  .demo-head{ display:flex; align-items:center; justify-content:space-between; padding:16px 20px; border-bottom:1px solid rgba(255,255,255,0.1); flex-wrap:wrap; gap:10px; }
+  .demo-head .live{ display:flex; align-items:center; gap:8px; font-weight:700; font-size:0.9rem; color:#faf7f2; }
+  .live .dot{ width:8px; height:8px; border-radius:50%; background:var(--positive); box-shadow:0 0 0 3px rgba(63,207,149,0.25); }
+  .demo-tabs{ display:flex; gap:6px; }
+  .demo-tabs button{
+    background:transparent; border:1px solid rgba(255,255,255,0.16); color:#c3c9d6; border-radius:999px;
+    padding:6px 13px; font-size:0.76rem; font-weight:700; cursor:pointer;
+  }
+  .demo-tabs button.active{ background:var(--accent); border-color:var(--accent); color:#fff; }
+  .demo-kpis{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(255,255,255,0.08); }
+  .demo-kpis div{ background:var(--navy-raised); padding:16px 18px; }
+  .demo-kpis .k{ font-size:0.74rem; color:#9aa1b0; }
+  .demo-kpis .v{ font-family:'Gothic A1'; font-weight:900; font-size:1.25rem; color:#faf7f2; margin-top:4px; }
+  .demo-kpis .v.accentv{ color:var(--accent-deep); }
+  @media (max-width:700px){ .demo-kpis{ grid-template-columns:repeat(2,1fr); } }
+  .demo-table{ width:100%; border-collapse:collapse; font-size:0.84rem; }
+  .demo-table th{ text-align:left; padding:10px 18px; color:#9aa1b0; font-weight:600; font-size:0.74rem; border-bottom:1px solid rgba(255,255,255,0.08); }
+  .demo-table td{ padding:11px 18px; border-bottom:1px solid rgba(255,255,255,0.06); color:#dfe1e6; }
+  .demo-table tr[hidden]{ display:none; }
+  .status-pill{ font-size:0.72rem; font-weight:700; padding:3px 10px; border-radius:999px; }
+  .status-ok{ background:rgba(63,207,149,0.16); color:#3fcf95; }
+  .status-run{ background:rgba(255,176,32,0.18); color:#ffb020; }
+  .status-warn{ background:rgba(255,196,0,0.16); color:#ffcf4d; }
+  .demo-foot{ display:flex; justify-content:space-between; padding:13px 20px; font-size:0.78rem; color:#9aa1b0; border-top:1px solid rgba(255,255,255,0.08); flex-wrap:wrap; gap:8px; }
+  .example-badge{ font-size:0.7rem; background:rgba(255,255,255,0.08); padding:3px 10px; border-radius:999px; color:#c3c9d6; }
+
+  /* ---------- 원페이 CALC (Naver Pay tone) ---------- */
+  .calc-wrap{
+    display:grid; grid-template-columns:1fr 1fr; gap:0; background:var(--paper-raised);
+    border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:0 22px 46px -22px rgba(3,199,90,0.35);
+  }
+  @media (max-width:820px){ .calc-wrap{ grid-template-columns:1fr; } }
+  .calc-intro{ padding:32px; display:flex; flex-direction:column; gap:14px; justify-content:center; }
+  .calc-intro h3{ color:var(--ink); font-size:1.35rem; }
+  .calc-intro p{ color:var(--ink-soft); font-size:0.92rem; }
+  .npay-chip-row{ display:flex; align-items:center; gap:8px; }
+  .npay-chip{
+    display:inline-flex; align-items:center; gap:6px; background:#03C75A; color:#fff;
+    font-weight:800; font-size:0.8rem; padding:6px 12px 6px 6px; border-radius:999px; width:fit-content;
+  }
+  .npay-chip b{
+    background:#fff; color:#03C75A; width:19px; height:19px; border-radius:50%;
+    display:inline-flex; align-items:center; justify-content:center; font-size:0.74rem; font-weight:900;
+  }
+  .npay-label{ font-size:0.78rem; font-weight:800; color:var(--steel); }
+  .npay-coupon{
+    position:relative; border-radius:16px; padding:20px 22px 18px; margin-top:6px;
+    background:linear-gradient(155deg,#181b1e,#050607);
+    color:#fff; display:flex; flex-direction:column; justify-content:space-between; gap:26px;
+    box-shadow:0 16px 34px -18px rgba(0,0,0,0.55);
+  }
+  .npay-coupon-badge{ display:inline-flex; align-items:center; gap:7px; font-family:'Gothic A1'; font-weight:800; font-size:1.15rem; color:#03C75A; }
+  .npay-coupon-badge b{
+    background:#03C75A; color:#05070a; width:26px; height:26px; border-radius:50%;
+    display:inline-flex; align-items:center; justify-content:center; font-size:0.95rem; font-weight:900;
+  }
+  .npay-coupon-bottom{ display:flex; justify-content:space-between; align-items:flex-end; gap:12px; }
+  .npay-coupon-label{ font-size:0.76rem; line-height:1.4; color:#cfd3d8; }
+  .npay-coupon-amount{ font-family:'Gothic A1'; font-weight:900; font-size:1.55rem; color:#fff; white-space:nowrap; }
+  .npay-coupon-amount small{ font-size:0.85rem; font-weight:700; }
+  .npay-coupon-caption{ font-size:0.72rem; color:var(--steel); margin-top:8px; }
+  .calc-form{ padding:30px 32px; background:#F2FBF6; display:flex; flex-direction:column; gap:20px; border-left:1px solid var(--line); }
+  .field label{ display:block; font-size:0.8rem; font-weight:700; color:var(--ink-soft); margin-bottom:8px; }
+  select#displacement{
+    width:100%; padding:11px 12px; border-radius:9px; border:1.5px solid #c8ecd7;
+    background:#fff; color:var(--ink); font-size:0.92rem;
+  }
+  select#displacement:focus{ outline:none; border-color:#03C75A; }
+  input[type="range"]{ width:100%; accent-color:#03C75A; }
+  .range-row{ display:flex; justify-content:space-between; font-size:0.8rem; color:var(--ink-soft); margin-bottom:6px; }
+  .range-row b{ color:#03C75A; font-variant-numeric:tabular-nums; }
+  .fault-row{ display:flex; gap:8px; flex-wrap:wrap; }
+  .fault-btn{
+    flex:1; min-width:70px; padding:9px 8px; border-radius:9px; border:1.5px solid #c8ecd7;
+    background:#fff; color:var(--ink-soft); font-weight:700; font-size:0.8rem; cursor:pointer;
+  }
+  .fault-btn.active{ background:#03C75A; border-color:#03C75A; color:#fff; }
+  .calc-result{ background:#E4F9EC; border:1px solid #b9ecce; border-radius:12px; padding:18px 20px; display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; }
+  .calc-result .k{ font-size:0.82rem; color:#2f7a4e; }
+  .calc-result .v{ font-family:'Gothic A1'; font-weight:900; font-size:1.9rem; color:#03C75A; }
+  .calc-disclaimer{ font-size:0.74rem; color:var(--steel); }
+
+  /* ---------- TIMELINE ---------- */
+  .timeline{ display:flex; flex-direction:column; }
+  .tl-row{ display:grid; grid-template-columns:88px 1fr; gap:18px; padding:14px 0; border-top:1px solid var(--line); }
+  .tl-row:first-child{ border-top:none; }
+  .tl-year{ font-family:'Gothic A1'; font-weight:900; font-size:1.05rem; color:var(--accent-deep); }
+  .tl-items{ display:flex; flex-direction:column; gap:4px; }
+  .tl-items span{ font-size:0.9rem; color:var(--ink-soft); }
+  .tl-items b{ color:var(--ink); }
+
+  .profile-grid{ display:grid; grid-template-columns:1fr 1.3fr; gap:30px; align-items:start; margin-bottom:34px; }
+  @media (max-width:820px){ .profile-grid{ grid-template-columns:1fr; } }
+  .profile-card{ background:var(--paper-raised); border:1px solid var(--line); border-radius:16px; padding:26px; }
+  .profile-card dl{ display:grid; grid-template-columns:auto 1fr; gap:10px 16px; margin:0; }
+  .profile-card dt{ font-size:0.82rem; color:var(--steel-soft); font-weight:700; }
+  .profile-card dd{ margin:0; font-size:0.92rem; color:var(--ink); }
+  .profile-card .legal-note{ margin-top:16px; padding-top:14px; border-top:1px solid var(--line); font-size:0.78rem; color:var(--steel-soft); }
+
+  /* ---------- FOOTER ---------- */
+  .footer{ background:var(--navy); color:#e7e5e0; margin:0 -20px; padding:70px 20px 40px; }
+  .footer h2{ color:#faf7f2; }
+  .footer p{ color:#b7bcc7; }
+  .footer-meta{ margin-top:36px; padding-top:22px; border-top:1px solid rgba(255,255,255,0.12); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:0.8rem; color:#7c869c; }
+
+  ::selection{ background:var(--accent); color:#fff; }
+
+  /* ---------- INLINE EDIT MODE ---------- */
+  .edit-toggle{
+    border:none; background:transparent; color:var(--steel); cursor:pointer;
+    font-size:0.85rem; opacity:0.08; padding:4px 7px; margin-left:4px; border-radius:6px;
+    transition:opacity .15s, background .15s; line-height:1;
+  }
+  .edit-toggle:hover, .edit-toggle:focus-visible{ opacity:0.6; background:var(--paper-sunken); }
+  body.editing [data-ed]{ outline:1.5px dashed var(--accent); outline-offset:2px; border-radius:3px; cursor:text; }
+  body.editing [data-ed]:focus{ outline-style:solid; background:var(--accent-tint); }
+
+  .edit-modal-backdrop{ position:fixed; inset:0; background:rgba(10,14,20,0.55); z-index:300; display:flex; align-items:center; justify-content:center; padding:20px; }
+  .edit-modal-backdrop[hidden]{ display:none; }
+  .edit-modal{ background:var(--paper-raised); border-radius:14px; padding:26px 28px; width:min(320px,100%); box-shadow:var(--shadow); }
+  .edit-modal h3{ font-size:1.05rem; margin-bottom:6px; }
+  .edit-modal p{ font-size:0.85rem; margin-bottom:14px; }
+  .edit-modal input{
+    width:100%; padding:12px; border-radius:8px; border:1px solid var(--line-strong);
+    font-size:1.2rem; letter-spacing:0.4em; text-align:center; font-family:'Gothic A1',sans-serif;
+  }
+  .edit-modal input.err{ border-color:var(--accent); animation:edit-shake .3s; }
+  .edit-modal .row{ display:flex; gap:8px; margin-top:16px; }
+  .edit-modal .row button{ flex:1; padding:10px; border-radius:8px; border:none; font-weight:700; cursor:pointer; font-size:0.88rem; }
+  .edit-modal .ok{ background:var(--navy); color:#fff; }
+  .edit-modal .cancel{ background:var(--paper-sunken); color:var(--ink-soft); }
+  @keyframes edit-shake{ 0%,100%{transform:translateX(0);} 25%{transform:translateX(-6px);} 75%{transform:translateX(6px);} }
+
+  .edit-toolbar{
+    position:fixed; bottom:20px; left:50%; transform:translateX(-50%); z-index:280;
+    background:var(--navy); color:#fff; padding:9px 10px 9px 16px; border-radius:999px; box-shadow:var(--shadow);
+    display:flex; align-items:center; gap:10px; font-size:0.85rem; font-weight:700;
+  }
+  .edit-toolbar[hidden]{ display:none; }
+  .edit-toolbar button{ border:none; border-radius:999px; padding:8px 16px; font-weight:700; cursor:pointer; font-size:0.82rem; }
+  .edit-toolbar .save{ background:var(--accent); color:#fff; }
+  .edit-toolbar .exit{ background:rgba(255,255,255,0.15); color:#fff; }
+  .edit-toast{
+    position:fixed; bottom:82px; left:50%; transform:translateX(-50%); background:var(--positive); color:#fff;
+    padding:9px 20px; border-radius:999px; font-size:0.82rem; font-weight:700; z-index:290; opacity:0;
+    transition:opacity .25s; pointer-events:none; white-space:nowrap;
+  }
+  .edit-toast.show{ opacity:1; }
+</style>
+
+<div class="nav">
+  <div class="nav-row wrap">
+    <div class="brand" style="flex-direction:row; align-items:center;">
+      <span style="display:flex; flex-direction:column;">마이파트너(My Partner)<small>MERITZ CAPITAL PROPOSAL · 2026</small></span>
+      <button type="button" id="editToggleBtn" class="edit-toggle" title="내용 수정" aria-label="내용 수정">✎</button>
+    </div>
+    <div class="nav-links">
+      <a href="#overview">제안개요</a>
+      <a href="#advantage">비용절감</a>
+      <a href="#control">관제&amp;Win-Back</a>
+      <a href="#linkone">LinkONE</a>
+      <a href="#carback">원페이</a>
+      <a href="#pricing">요금안내</a>
+      <a href="#company">회사소개</a>
+    </div>
+    <a class="nav-cta" href="#carback">리워드 계산기</a>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">메리츠캐피탈 사고대차 파트너십 제안 · 마이파트너(My Partner)</div>
+    <h1>"항상 고객이 우선이다."<span class="accent-line">메리츠캐피탈이 지켜온 그 원칙,<br>사고 현장의 마지막 순간까지 함께 지키겠습니다.</span></h1>
+    <p class="lede">마이파트너(My Partner)는 15년간 쌓아온 사고대차 운영 노하우로,<br>고객이 사고라는 가장 불편한 순간에도 가장 좋은 경험을 갖도록 돕는 통합 대차 파트너십<br>비용 절감, 자산 보호, 고객 만족을 'Link ONE' 플랫폼으로 연결합니다.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="#overview">제안 개요 보기</a>
+      <a class="btn btn-ghost" href="#carback">원페이 리워드 체험</a>
+    </div>
+    <div class="stat-row">
+      <div class="stat-tile hi"><div class="v num">-28.5%</div><div class="l">차량 3만대 등급별 보유비율 <br>가중평균 비용 절감률</div></div>
+      <div class="stat-tile"><div class="v num">15년</div><div class="l">대차공급 운영 노하우 &amp;<br>10만+ 건 빅데이터</div></div>
+      <div class="stat-tile"><div class="v num">0%</div><div class="l">고객 이탈 리스크<br>(장기렌터카 AG코드 미영위)</div></div>
+      <div class="stat-tile"><div class="v num">5분</div><div class="l">사고 접수<br>초기대응 보장</div></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- OVERVIEW -->
+  <section id="overview">
+    <div class="section-head">
+      <div class="eyebrow">제안 배경</div>
+      <h2>메리츠캐피탈이 지금 마주한 질문</h2>
+      <p class="measure">사고대차는 메리츠캐피탈 고객이 가장 예민하게 서비스 품질을 체감하는 순간입니다. <br>그 순간의 경험이 곧 메리츠캐피탈에 대한 신뢰로 이어집니다.</p>
+    </div>
+
+    <div class="quote-block">
+      <q>"사고 발생 시, 고객의 불편함은 어떻게 해소하고 계십니까?"</q>
+      <div class="quote-sub">대차 민원과 자산 관리의 비효율, 해결책이 필요합니다.</div>
+    </div>
+
+    <div class="bridge">
+      <div class="bridge-note">
+        <p><strong>현재 메리츠캐피탈의 사고대차 업무는 차량관리 종합회사에서 처리되고 있습니다.</strong> 이번 제안은 사고대차 전문기업과 직접 연결되어, <br>고객과 중간 단계없이 직접 소통하고 서비스를 제공하고<br> 고객사는 이를 실시간으로 모니터링하는 시스템을 구축하는 것을 목표로 합니다.</p>
+      </div>
+      <ul class="benefit-list">
+        <li><span class="tick">✓</span><div><span class="t">직접 관제하는 실시간 대시보드</span><p>LinkONE을 통해 배차·반납·정산 현황을 메리츠캐피탈이 직접, 실시간으로 확인합니다.</p></div></li>
+        <li><span class="tick">✓</span><div><span class="t">검증된 15년 노하우</span><p>10만 건 이상의 대차 상담·공급 데이터를 기반으로 한 최적 매칭 시스템을 제공합니다.</p></div></li>
+        <li><span class="tick">✓</span><div><span class="t">전국 100개 제휴사 네트워크</span><p>전국 언제(24/7) 어디서나 사고가 발생해도 즉시 대응 가능한 인프라를 이미 갖추고 있습니다.</p></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ADVANTAGE -->
+  <section id="advantage" class="tight">
+    <div class="section-head">
+      <div class="eyebrow">비용 &amp; 경쟁력</div>
+      <h2>메리츠캐피탈의 비용 구조를 다시 설계합니다</h2>
+      <p class="measure">메리츠캐피탈의 실제 차종 등급별 보유비율을 반영하면, <br>1일 표준요금 대비 평균 <strong>-28.5%</strong>의 비용 절감 효과가 발생합니다. <br>업계 평균 할인율 <strong>50~55%</strong> 대비, 마이파트너(My Partner)는 <strong>65~70%</strong>까지 <br>적용되는 차종별 단가 경쟁력을 확인해 보세요.</p>
+    </div>
+
+    <div class="chart-card">
+      <div>
+        <div class="chart-legend"><span><i class="dot" style="background:var(--line-strong)"></i>타사 청구액 (50~55% 할인)</span><span><i class="dot" style="background:var(--accent)"></i>마이파트너(My Partner) 청구액 (65~70% 할인)</span></div>
+        <div class="chart" id="chart">
+          <div class="chart-col"><div class="bars"><div class="bar std" style="height:28.8%"><span class="val num">6.1만</span></div><div class="bar cns" style="height:17.3%"><span class="val num">3.6만</span></div></div><div class="cat">경차</div></div>
+          <div class="chart-col"><div class="bars"><div class="bar std" style="height:35.7%"><span class="val num">7.5만</span></div><div class="bar cns" style="height:21.4%"><span class="val num">4.5만</span></div></div><div class="cat">소형</div></div>
+          <div class="chart-col"><div class="bars"><div class="bar std" style="height:49.3%"><span class="val num">10.4만</span></div><div class="bar cns" style="height:29.6%"><span class="val num">6.2만</span></div></div><div class="cat">중형</div></div>
+          <div class="chart-col"><div class="bars"><div class="bar std" style="height:76.5%"><span class="val num">16.1만</span></div><div class="bar cns" style="height:59.5%"><span class="val num">12.5만</span></div></div><div class="cat">준대형</div></div>
+          <div class="chart-col"><div class="bars"><div class="bar std" style="height:96.2%"><span class="val num">20.2만</span></div><div class="bar cns" style="height:74.8%"><span class="val num">15.7만</span></div></div><div class="cat">대형</div></div>
+          <div class="chart-col"><div class="bars"><div class="bar std" style="height:72%"><span class="val num">15.1만</span></div><div class="bar cns" style="height:56%"><span class="val num">11.8만</span></div></div><div class="cat">승합</div></div>
+          <div class="chart-col"><div class="bars"><div class="bar std" style="height:62.8%"><span class="val num">13.2만</span></div><div class="bar cns" style="height:41.9%"><span class="val num">8.8만</span></div></div><div class="cat">SUV</div></div>
+        </div>
+      </div>
+      <div class="chart-aside">
+        <div class="big num">-28.5%</div>
+        <p>메리츠캐피탈의 차종 등급별 보유비율(시장 평균치)로 가중평균한 <strong>전체 비용 절감률</strong>입니다. <br>차종별로는 최소 22.2%(준대형·대형·승합)에서 최대 40.0%(경차·소형·중형)까지 절감 효과가 발생하며, 최근 인기차종인 SUV가 33.3%로 가장 많이 절감됩니다.</p>
+        <p style="font-size:0.8rem; color:var(--steel-soft)">* 1일 표준요금 기준 타사(50~55% 할인)와 마이파트너(My Partner)(65~70% 할인) 청구액 차이를 차종별로 계산한 뒤, 메리츠캐피탈의 차종 등급별 추정 보유비율로 가중평균한 수치입니다.</p>
+      </div>
+    </div>
+
+    <div class="card-grid" style="margin-top:22px;">
+      <div class="card">
+        <div class="icon">①</div>
+        <h3>타 대형 전업사 대비 최저 공급 단가 보장</h3>
+        <p>지난 15년간 단 한 번의 단가 인상 없이 서비스 품질 향상에만 집중했습니다. <BR>타사에는 없는 고객 불만 및 민원해소에 대차 무상지원을 지원합니다.</p>
+      </div>
+      <div class="card">
+        <div class="icon">②</div>
+        <h3>부대 비용 완전 면제 &amp; 과실 부담 완화</h3>
+        <p>무료 딜리버리 및 이동간 유류비/톨비 지원.<BR>자차과실 최대 30%까지 대여료 별도 청구 없이 메리츠캐피탈의 손실을 방어합니다.</p>
+      </div>
+      <div class="card">
+        <div class="icon">③</div>
+        <h3>고객 이탈 완벽 차단 (AG코드 미영위)</h3>
+        <p>마이파트너(My Partner)의 모든 네트워크 전체는<BR>장기렌터카 사업을 영위하지 않아, 대차 과정에서 발생할 수 있는 메리츠캐피탈의 소중한 <BR>고객 이탈 리스크가 전혀 없습니다.</p>
+      </div>
+    </div>
+
+    <div class="section-head" style="margin-top:56px;">
+      <h2 style="font-size:1.5rem">마이파트너(My Partner) vs 대형 전업사 비교</h2>
+      <p>메리츠캐피탈이 실제로 얻게 되는 운영상의 차이입니다.</p>
+    </div>
+    <div class="table-scroll">
+      <table class="compare-table">
+        <colgroup>
+          <col style="width:9%"><col style="width:23%"><col style="width:22%"><col style="width:24%"><col style="width:22%">
+        </colgroup>
+        <thead><tr><th>구분</th><th>항목</th><th>A사</th><th class="col-hi">마이파트너(My Partner)</th><th>B사</th></tr></thead>
+        <tbody>
+          <tr><td>일반현황</td><td>전체 보유대수</td><td class="num">260,000여 대</td><td class="num col-hi">90여 대</td><td class="num">210,000여 대</td></tr>
+          <tr><td>일반현황</td><td>대차 운영대수</td><td class="num">2,200</td><td class="num col-hi">2,040</td><td class="num">2,500</td></tr>
+          <tr><td>일반현황</td><td>네트워크 수</td><td class="num">60개소</td><td class="num col-hi">100개소</td><td class="num">105개소</td></tr>
+          <tr><td>일반현황</td><td>대차공급 주요 고객사</td><td>삼성카드, JB우리캐피탈</td><td class="col-hi">JB우리·BNK·롯데캐피탈,<br>오픈링크(현대/하나/우리금융)</td><td>오릭스캐피탈</td></tr>
+          <tr><td>운영방식</td><td>운영형태(구조)</td><td>Sales Partner 60개<br>(프랜차이즈형 개별사업자)</td><td class="col-hi">직영 7개소(60% 처리)<br>네트워크 90개소</td><td>Sales Partner 105여 개소<br>(프랜차이즈형 개별사업자)</td></tr>
+          <tr><td>운영방식</td><td>대차요금 할인율</td><td class="num">50~55%</td><td class="num col-hi">55~70%</td><td class="num">45%</td></tr>
+          <tr><td>운영방식</td><td>중앙관리시스템<br>(실시간 모니터링)</td><td>4개 센터에<br>분할 관제</td><td class="col-hi badge-good">O</td><td class="badge-bad">X</td></tr>
+          <tr><td>운영방식</td><td>내부 장기렌터카<br>대차 비중</td><td>높음</td><td class="col-hi badge-good">없음</td><td>높음</td></tr>
+          <tr><td>운영방식</td><td>24시간 대응</td><td>야간·심야<br>일부만 대응</td><td class="col-hi badge-good">24시간<BR>365일 가능</td><td>야간·심야<br>일부만 대응</td></tr>
+          <tr><td>운영방식</td><td>장기렌터카 영업</td><td>영업</td><td class="col-hi badge-good">X</td><td>영업</td></tr>
+          <tr><td>보험</td><td>대물 한도</td><td class="num">5,000~10,000만원</td><td class="num col-hi">10,000만원</td><td class="num">5,000~10,000만원</td></tr>
+          <tr><td>보험</td><td>임직원 수탁보험 가입</td><td>선택적 가입</td><td class="col-hi badge-good">전 임직원 의무가입</td><td>선택적 가입</td></tr>
+          <tr><td>서비스</td><td>정비/사고 민원<br>무상대차 서비스</td><td class="badge-bad">X</td><td class="col-hi badge-good">O</td><td class="badge-bad">X</td></tr>
+          <tr><td>서비스</td><td>과실 협의 지원 서비스</td><td>△</td><td class="col-hi badge-good">O</td><td>△</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-note">규모의 경제가 아닌 <strong>전담 밀착 운영 구조</strong>로 대형 전업사 대비 높은 할인율, 100% 24시간 대응, 무상대차·과실협의 지원까지 제공합니다.</div>
+
+    <div class="chip-row">
+      <span class="chip" style="border-color:transparent; background:transparent; color:var(--steel-soft); font-weight:500;">검증된 메이저 제휴 금융사</span>
+      <span class="chip">JB우리캐피탈</span><span class="chip">BNK캐피탈</span><span class="chip">롯데캐피탈</span><span class="chip">현대캐피탈</span><span class="chip">우리금융캐피탈/카드</span>
+    </div>
+  </section>
+
+  <!-- CONTROL & WIN-BACK -->
+  <section id="control" class="section-alt" style="margin-inline:-20px;">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">관제 시스템 &amp; Win-Back</div>
+        <h2>사고 그 순간부터, 메리츠캐피탈 고객을 지킵니다</h2>
+        <p class="measure">사고 발생 시 5분 이내 초동 대응부터 사설 렉카 개입으로 인한 자산 유실 차단까지, 메리츠캐피탈의 자산 보호와 고객 만족을 이끄는 실시간 운영 프로세스입니다.</p>
+      </div>
+
+      <div class="card-grid">
+        <div class="dark-card">
+          <div class="icon" style="background:var(--accent)">⏱</div>
+          <h3>5분 이내 초기 대응</h3>
+          <p>Inbound 사고 접수 즉시 5분 이내 고객과 직접 컨택하여 안전 조치 및 안내 진행. 비제휴사로의 차량 유실을 원천 차단합니다.</p>
+          <div class="metric"><span class="k">초기 컨택률</span><span class="v num">99.2% 달성</span></div>
+        </div>
+        <div class="dark-card">
+          <div class="icon" style="background:rgba(255,255,255,0.14)">🛡</div>
+          <h3>24시간 3L ZERO 시스템</h3>
+          <p>Loss Call, Loss Time, Loss Car 제로화 달성. 전국 60% 직영 권역과 정예 파트너사가 365일 실시간 응대를 제공합니다.</p>
+          <div class="metric"><span class="k">손실 목표</span><span class="v num">3L ZERO 보장</span></div>
+        </div>
+        <div class="dark-card">
+          <div class="icon" style="background:var(--accent)">🔒</div>
+          <h3>완벽한 자산 보호 &amp; 수탁보험</h3>
+          <p>전 임직원 수탁보험(대인무한/대물 1억/자차 5천) 의무 가입. 사고 시 즉각 보상 및 고객 차량 인수 거부 시 승계 처리까지 책임집니다.</p>
+          <div class="metric"><span class="k">보상한도</span><span class="v num">대인무한 · 대물1억</span></div>
+        </div>
+      </div>
+
+      <div style="margin-top:28px; background:var(--navy-raised); border:1px solid rgba(255,255,255,0.1); border-radius:16px; padding:26px clamp(18px,3vw,32px);">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:18px;">
+          <div>
+            <span class="pill pill-accent">WIN-BACK SOLUTION</span>
+            <h3 style="margin-top:10px; color:#faf7f2;">위기를 감동으로 바꾸는 케어 솔루션</h3>
+          </div>
+          <span class="pill" style="background:rgba(255,255,255,0.08); color:#c3c9d6;">강성 민원 원천 차단</span>
+        </div>
+        <div class="card-grid two">
+          <div class="dark-card">
+            <h3>✈ 제주 등 특수지역 지연 민원 해결</h3>
+            <p>기상 악화나 항공 결항 시 대체 교통수단(항공편 등) 무상 제공 및 직원 짐 픽업 밀착 케어로 불만을 감동 서비스로 전환시킵니다.</p>
+          </div>
+          <div class="dark-card">
+            <h3>🚚 사설 렉카 피해 방지 &amp; 자산 보존</h3>
+            <p>15년간 구축한 현장 출동 네트워크로 사설 렉카 개입 및 과다 수리비 발생을 차단하고 메리츠캐피탈 제휴 공업사로의 입고를 유도합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LINKONE -->
+  <section id="linkone">
+    <div class="section-head">
+      <div class="eyebrow">통합 관제 플랫폼</div>
+      <h2>타 메이저 캐피탈사에서 이미 검증된 B2B 중개 플랫폼, LinkONE</h2>
+      <p class="measure">현재 타 메이저 캐피탈사의 대차 업무를 성공적으로 수행 중인 핵심 인프라 플랫폼입니다. 메리츠캐피탈에는 접수부터 반납까지 완벽한 실시간 관제를 직접 제공합니다.</p>
+    </div>
+
+    <ul class="benefit-list" style="margin-bottom:26px;">
+      <li><span class="tick">✓</span><div><span class="t">스마트 자동 매칭</span><p>사고 접수 즉시 최적의 렌터카를 자동으로 매칭하여 배차 소요 시간을 획기적으로 단축합니다.</p></div></li>
+      <li><span class="tick">✓</span><div><span class="t">실시간 통합 모니터링</span><p>배차 상태, 반납 경과 일수, 대차 이력 등을 대시보드를 통해 메리츠캐피탈이 직접 실시간 파악할 수 있습니다.</p></div></li>
+      <li><span class="tick">✓</span><div><span class="t">청구 및 정산 투명성</span><p>누적 청구 금액 및 보험사 청구 예정 금액을 산출하여 정산 업무 효율성을 극대화합니다. 메리츠캐피탈 ERP와 API 즉시 연동을 지원합니다.</p></div></li>
+    </ul>
+
+    <div class="demo-panel">
+      <div class="demo-head">
+        <div class="live"><span class="dot"></span>LinkONE Control Center <span class="example-badge">예시 데이터 · Live Demo</span></div>
+        <div class="demo-tabs">
+          <button class="active" data-filter="all">전체보기</button>
+          <button data-filter="progress">배차 진행중</button>
+          <button data-filter="warn">반납 주의</button>
+        </div>
+      </div>
+      <div class="demo-kpis">
+        <div><div class="k">당월 누적 청구 금액</div><div class="v num">94,556,583원</div></div>
+        <div><div class="k">당월 총 사고대차 건수</div><div class="v accentv num">1,924건</div></div>
+        <div><div class="k">오늘의 신규 대차 요청</div><div class="v num">30건</div></div>
+        <div><div class="k">평균 매칭 소요 시간</div><div class="v num">2분 15초</div></div>
+      </div>
+      <div class="table-scroll" style="border:none; border-radius:0;">
+        <table class="demo-table">
+          <thead><tr><th>고객 / 접수 차종</th><th>대차 배차 차량</th><th>진행 상태</th><th class="num">예상 정산액</th></tr></thead>
+          <tbody id="demoRows">
+            <tr data-status="progress"><td>김*호 (그랜저 IG)</td><td>→ 제네시스 G80 (신형)</td><td><span class="status-pill status-ok">배차 완료</span></td><td class="num">145,000원</td></tr>
+            <tr data-status="progress"><td>이*경 (BMW 520d)</td><td>→ 벤츠 E250</td><td><span class="status-pill status-run">운행 중</span></td><td class="num">210,000원</td></tr>
+            <tr data-status="warn"><td>박*우 (아반떼 CN7)</td><td>→ K5 하이브리드</td><td><span class="status-pill status-warn">반납 연체 주의</span></td><td class="num">98,000원</td></tr>
+            <tr data-status="progress"><td>최*진 (카니발 KA4)</td><td>→ 스타리아 9인승</td><td><span class="status-pill status-ok">배차 완료</span></td><td class="num">170,000원</td></tr>
+            <tr data-status="done"><td>정*민 (Tucson NX4)</td><td>→ 스포티지 NQ5</td><td><span class="status-pill" style="background:rgba(154,161,176,0.18); color:#c3c9d6;">정산 완료</span></td><td class="num">112,000원</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="demo-foot"><span>* LinkONE 시스템은 메리츠캐피탈 ERP와 API 즉시 연동을 지원합니다.</span><span>자동 매칭율 98.6%</span></div>
+    </div>
+
+    <div class="section-head" style="margin-top:56px;">
+      <h2 style="font-size:1.4rem">대차를 넘어선 Fleet Life-Cycle 시너지</h2>
+      <p>대차 관제를 넘어 메리츠캐피탈 자산 전반의 가치를 극대화하는 3대 핵심 인프라입니다.</p>
+    </div>
+    <div class="card-grid">
+      <div class="card"><div class="icon">🔧</div><h3>수입차 부품 공급망</h3><p>제휴사를 통한 수입차 부품 최대 할인율을 적용. 제휴 공업사 입고를 유도하여 메리츠캐피탈의 연간 막대한 수리비를 절감합니다.</p></div>
+      <div class="card"><div class="icon">💻</div><h3>온라인 공매 플랫폼</h3><p>중도 해지 및 반납 차량을 자체 플랫폼을 통해 투명하게 매각·승계 중개하여 메리츠캐피탈의 자산 처분 손실을 방어합니다.</p></div>
+      <div class="card"><div class="icon">🚛</div><h3>전국 정비 &amp; 탁송 인프라</h3><p>우수 협력사로 구성된 전국망을 통해 신속한 차량 회수, 탁송, 정비 입고가 가능한 인프라를 제공합니다.</p></div>
+    </div>
+  </section>
+
+  <!-- 원페이 -->
+  <section id="carback" class="section-alt" style="margin-inline:-20px;">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">B2B2C 혁신 리워드</div>
+        <h2>메리츠캐피탈 고객만을 위한 차세대 리워드, 원페이</h2>
+        <p class="measure">사고 대차 이용 고객에게 네이버페이 포인트를 즉시 지급하는 업계 최초 보상형 대차 솔루션입니다. <BR>리워드 재원은 마이파트너(My Partner) 자사 마케팅 예산으로 집행되어 <strong style="color:#faf7f2">메리츠캐피탈의 추가 비용 부담이 없습니다.</strong></p>
+      </div>
+
+      <div class="calc-wrap">
+        <div class="calc-intro">
+          <div class="npay-chip-row">
+            <span class="npay-chip"><b>N</b>Pay</span>
+            <span class="npay-label">원페이 예상 리워드 계산기</span>
+          </div>
+          <h3>사고의 불편을 '기분 좋은 혜택'으로 전환</h3>
+          <p>✓ 네이버페이 포인트 즉시 지급으로 사고대차 이용 고객 만족도 극대화<br>✓ 배기량, 수리기간, 과실비율에 맞춰 투명한 약관 기반으로 즉시 산출<br>✓ 번거로운 사고 처리 과정을 보상으로 바꿔 메리츠캐피탈 브랜드 로열티를 강화합니다.</p>
+          <div class="npay-coupon" aria-hidden="true">
+            <span class="npay-coupon-badge"><b>N</b>pay</span>
+            <div class="npay-coupon-bottom">
+              <span class="npay-coupon-label">네이버페이<br>포인트 쿠폰</span>
+              <span class="npay-coupon-amount">10,000<small>원</small></span>
+            </div>
+          </div>
+          <div class="npay-coupon-caption">* 실제 지급 형태를 보여주기 위한 예시이며, 정확한 금액은 계산기 결과를 기준으로 합니다.</div>
+        </div>
+        <div class="calc-form">
+          <div class="field">
+            <label for="displacement">1. 고객 차량 배기량 (구분)</label>
+            <select id="displacement">
+              <option value="2000">1,000cc 미만 (경차)</option>
+              <option value="3000" selected>1,000cc ~ 1,600cc (준중형/소형 SUV)</option>
+              <option value="4000">1,600cc ~ 2,000cc (중형)</option>
+              <option value="7000">2,000cc ~ 3,000cc (준대형/대형)</option>
+              <option value="8500">3,000cc 이상 / 전기차 (프리미엄)</option>
+            </select>
+          </div>
+          <div class="field">
+            <div class="range-row"><span>2. 수리 및 대차 이용 기간</span><b id="daysLabel">3일</b></div>
+            <input type="range" id="days" min="1" max="30" value="3">
+          </div>
+          <div class="field">
+            <label>3. 본인 과실 비율</label>
+            <div class="fault-row">
+              <button class="fault-btn active" data-mult="1">0%(무과실)</button>
+              <button class="fault-btn" data-mult="0.9">10%</button>
+              <button class="fault-btn" data-mult="0.8">20%</button>
+              <button class="fault-btn" data-mult="0">30%(미지급)</button>
+            </div>
+          </div>
+          <div class="calc-result">
+            <div><div class="k">고객 지급 예상 네이버페이 포인트</div><div class="v"><span id="rewardValue" class="num">9,000</span>P</div></div>
+          </div>
+          <div class="calc-disclaimer">* 위 수치는 이해를 돕기 위한 예시 산식이며, 실제 적용 시 메리츠캐피탈과 협의된 약관 기준으로 산정됩니다. 본인 과실 30% 이상인 경우 리워드가 지급되지 않습니다.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="section-head">
+      <div class="eyebrow">요금 안내</div>
+      <h2>차종별 대차 요금 기준</h2>
+      <p class="measure">사고대차 표준 단가 대비 차급별 할인율과 청구 금액입니다. <BR>30일 초과 장기화 시에도 상한선 이내로 메리츠캐피탈의 비용 예측 가능성을 보장합니다.</p>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>차량 구분</th><th>차종명</th><th class="num">1~3일</th><th class="num">할인율</th><th class="num">1일 청구금액</th><th class="num">30일(상한선)</th></tr></thead>
+        <tbody>
+          <tr><td>경차</td><td>모닝 / 레이 / 캐스퍼</td><td class="num">126,000</td><td class="num">70%</td><td class="num">37,800</td><td class="num">550,000</td></tr>
+          <tr><td>소형</td><td>아반떼</td><td class="num">150,000</td><td class="num">70%</td><td class="num">45,000</td><td class="num">600,000</td></tr>
+          <tr><td>중형</td><td>쏘나타G, K5G</td><td class="num">207,000</td><td class="num">70%</td><td class="num">62,100</td><td class="num">850,000</td></tr>
+          <tr><td>중형</td><td>쏘나타H</td><td class="num">245,000</td><td class="num">70%</td><td class="num">73,500</td><td class="num">850,000</td></tr>
+          <tr><td>준대형</td><td>그랜저 2.5(G) / K8 2.5(G) / G70</td><td class="num">357,000</td><td class="num">65%</td><td class="num">124,950</td><td class="num">1,200,000</td></tr>
+          <tr><td>준대형</td><td>그랜저 3.5(G,L)</td><td class="num">380,000</td><td class="num">65%</td><td class="num">133,000</td><td class="num">1,200,000</td></tr>
+          <tr><td>대형</td><td>G80 2.5(G) / K9 3.3(G)</td><td class="num">449,000</td><td class="num">65%</td><td class="num">157,150</td><td class="num">1,500,000</td></tr>
+          <tr><td>대형</td><td>G80 3.5(G) / K9 3.8(G)</td><td class="num">502,000</td><td class="num">65%</td><td class="num">175,700</td><td class="num">1,500,000</td></tr>
+          <tr><td>대형</td><td>G90 3.5(G) / G90 5.0(G)</td><td class="num">564,000</td><td class="num">65%</td><td class="num">197,400</td><td class="num">1,950,000</td></tr>
+          <tr><td>승합</td><td>스타리아(G,H) / 카니발 9인승(G,D,H)</td><td class="num">313,000</td><td class="num">60%</td><td class="num">125,200</td><td class="num">1,100,000</td></tr>
+          <tr><td>승합</td><td>카니발 9인승 하이리무진</td><td class="num">457,000</td><td class="num">65%</td><td class="num">159,950</td><td class="num">1,500,000</td></tr>
+          <tr><td>SUV_RV</td><td>코나(G) / 니로(H) / 셀토스(G)</td><td class="num">228,000</td><td class="num">60%</td><td class="num">91,200</td><td class="num">800,000</td></tr>
+          <tr><td>SUV_RV</td><td>스포티지(D,G,H) / 투싼(G,H)</td><td class="num">275,000</td><td class="num">65%</td><td class="num">96,250</td><td class="num">850,000</td></tr>
+          <tr><td>SUV_RV</td><td>쏘렌토(D,G,H) / 토레스(G) / 그랑 콜레오스(H)</td><td class="num">293,000</td><td class="num">60%</td><td class="num">117,200</td><td class="num">1,050,000</td></tr>
+          <tr><td>SUV_RV</td><td>싼타페(G,H) / 쏘렌토(G,H)</td><td class="num">347,000</td><td class="num">65%</td><td class="num">121,450</td><td class="num">1,050,000</td></tr>
+          <tr><td>SUV_RV</td><td>팰리세이드(D)</td><td class="num">402,000</td><td class="num">65%</td><td class="num">140,700</td><td class="num">1,200,000</td></tr>
+          <tr><td>SUV_RV</td><td>GV70(G) / GV80(D,G)</td><td class="num">492,000</td><td class="num">70%</td><td class="num">147,600</td><td class="num">1,300,000</td></tr>
+          <tr><td>전기차</td><td>EV3 2WD / 코나 / 아이오닉5 2WD / EV6 2WD</td><td class="num">218,000</td><td class="num">55%</td><td class="num">98,100</td><td class="num">900,000</td></tr>
+          <tr><td>전기차</td><td>EV6 4WD, 아이오닉5 4WD / 아이오닉6</td><td class="num">326,000</td><td class="num">55%</td><td class="num">146,700</td><td class="num">1,100,000</td></tr>
+          <tr><td>전기차</td><td>아이오닉9</td><td class="num">350,000</td><td class="num">55%</td><td class="num">157,500</td><td class="num">1,300,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- COMPANY -->
+  <section id="company">
+    <div class="section-head">
+      <div class="eyebrow">회사 소개</div>
+      <h2>마이파트너(My Partner)를 소개합니다</h2>
+      <p class="measure">업계 최초 'B2B 전국 단일화 대차공급계약'을 체결한 이래, <BR>15년간 오직 B2B 대차공급 서비스에 집중하며 업계 표준을 정립해왔습니다.</p>
+    </div>
+
+    <div class="profile-grid">
+      <div class="profile-card">
+        <dl>
+          <dt>회사명</dt><dd>마이파트너(My Partner)</dd>
+          <dt>대표이사</dt><dd>조한선</dd>
+          <dt>업종</dt><dd>렌터카 및 리스 알선중개업, 자동차정비/부품알선</dd>
+          <dt>주소</dt><dd>서울특별시 강서구 마곡중앙8로7길 57, 비121호</dd>
+        </dl>
+        <div class="legal-note">· 법인 등기명 : 마이파트너(My Partner, 구 마이파트너(My Partner)) <BR>· 법인 설립일 2015. 06. 13</div>
+      </div>
+      <div>
+        <div class="timeline">
+          <div class="tl-row"><div class="tl-year">2025</div><div class="tl-items"><span><b>2025.03</b> 모빌러그 'FMS' MOU 체결</span><span><b>2025.09</b> 사고대차 누적 처리 100,000건 돌파</span></div></div>
+          <div class="tl-row"><div class="tl-year">2024</div><div class="tl-items"><span><b>2024.11</b> 대차 관리(중개) 통합 플랫폼 '링크원' 개발</span></div></div>
+          <div class="tl-row"><div class="tl-year">2022</div><div class="tl-items"><span><b>2022.11</b> JB우리캐피탈 대차공급계약 재계약</span><span><b>2022.05</b> 플릿 통합관리 브랜드 'Link ONE' 런칭</span></div></div>
+          <div class="tl-row"><div class="tl-year">2021</div><div class="tl-items"><span><b>2021.12</b> 연매출 30억 달성</span><span><b>2021.08</b> 롯데캐피탈 대차공급계약 체결</span></div></div>
+          <div class="tl-row"><div class="tl-year">2020</div><div class="tl-items"><span><b>2020.05</b> 자회사 'CNS렌터카' 직영운영차량 150대 돌파</span></div></div>
+          <div class="tl-row"><div class="tl-year">2019</div><div class="tl-items"><span><b>2019.02</b> 공업사 네트워크 구축 및 정비 알선업 개시</span></div></div>
+          <div class="tl-row"><div class="tl-year">2018</div><div class="tl-items"><span><b>2018.09</b> GS엠비즈 대차공급계약 체결</span><span><b>2018.05</b> BNK캐피탈 대차공급계약 체결</span></div></div>
+          <div class="tl-row"><div class="tl-year">2017</div><div class="tl-items"><span><b>2017.10</b> 선인모터스 대차공급계약 체결</span></div></div>
+          <div class="tl-row"><div class="tl-year">2016</div><div class="tl-items"><span><b>2016.12</b> 하나캐피탈 대차공급계약 체결</span></div></div>
+          <div class="tl-row"><div class="tl-year">2015</div><div class="tl-items"><span><b>2015.06</b> 서울 'CNCP모터스' 지분 인수 및 정비알선업 개시</span></div></div>
+          <div class="tl-row"><div class="tl-year">~2014</div><div class="tl-items"><span><b>2014.06</b> JB우리캐피탈 대차공급계약 체결</span><span><b>2013.10</b> 레드캡렌터카 대차 운영위탁 및 공급계약 체결</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <h2>고객과 행복을 함께하는 금융</h2>
+    <p class="measure">메리츠캐피탈의 신뢰를 바탕으로 한 지속적인 성장에, <BR>마이파트너(My Partner)가 가장 든든한 모빌리티 파트너로 동행하겠습니다. <BR>추가적인 질문이나 협의 사항은 언제든 연락 주시기 바랍니다.<BR>감사합니다.</p>
+    <div class="footer-meta">
+      <span>마이파트너(My Partner) (B2B 모빌리티 파트너)</span>
+      <span>메리츠캐피탈 사고대차 제휴 제안 · 2026. 09</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // LinkONE demo tab filter
+  var tabs = document.querySelectorAll('.demo-tabs button');
+  var rows = document.querySelectorAll('#demoRows tr');
+  tabs.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      tabs.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      var f = btn.getAttribute('data-filter');
+      rows.forEach(function(r){
+        var s = r.getAttribute('data-status');
+        var show = f === 'all' || s === f;
+        if(show){ r.removeAttribute('hidden'); } else { r.setAttribute('hidden',''); }
+      });
+    });
+  });
+
+  // 원페이 calculator
+  var disp = document.getElementById('displacement');
+  var days = document.getElementById('days');
+  var daysLabel = document.getElementById('daysLabel');
+  var faultBtns = document.querySelectorAll('.fault-btn');
+  var rewardEl = document.getElementById('rewardValue');
+  var mult = 1;
+
+  function compute(){
+    var rate = parseInt(disp.value, 10);
+    var d = parseInt(days.value, 10);
+    daysLabel.textContent = d + '일';
+    var points = Math.round((rate * d * mult) / 100) * 100;
+    rewardEl.textContent = points.toLocaleString('ko-KR');
+  }
+
+  disp.addEventListener('change', compute);
+  days.addEventListener('input', compute);
+  faultBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      faultBtns.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      mult = parseFloat(btn.getAttribute('data-mult'));
+      compute();
+    });
+  });
+
+  compute();
+})();
+</script>
+
+<div id="editModalBackdrop" class="edit-modal-backdrop" hidden>
+  <div class="edit-modal">
+    <h3>내용 수정</h3>
+    <p>비밀번호를 입력하면 이 페이지의 문구를 직접 클릭해서 수정할 수 있습니다.</p>
+    <input id="editPasswordInput" type="password" inputmode="numeric" maxlength="4" placeholder="••••" autocomplete="off">
+    <div class="row">
+      <button type="button" class="cancel" id="editModalCancel">취소</button>
+      <button type="button" class="ok" id="editModalOk">확인</button>
+    </div>
+  </div>
+</div>
+<div id="editToolbar" class="edit-toolbar" hidden>
+  <span>편집 모드</span>
+  <button type="button" class="save" id="editSaveBtn">저장</button>
+  <button type="button" class="exit" id="editExitBtn">종료</button>
+</div>
+<div id="editToast" class="edit-toast"></div>
+
+<script>
+(function(){
+  var EDIT_PASSWORD = '9659';
+  var STORAGE_KEY = 'cns_meritz_proposal_edits_v1';
+  var EDIT_SELECTOR = [
+    '.hero h1', '.hero p.lede', '.eyebrow',
+    '.section-head h2', '.section-head p',
+    '.quote-block q', '.quote-block .quote-sub',
+    '.bridge-note p', '.benefit-list .t', '.benefit-list p',
+    '.card h3', '.card p', '.card .metric .v', '.card .metric .k',
+    '.dark-card h3', '.dark-card p', '.dark-card .metric .v', '.dark-card .metric .k',
+    '.chart-aside p', '.chart-aside .big',
+    'table td', 'table th',
+    '.table-note', '.chip',
+    '.calc-intro h3', '.calc-intro p', '.calc-disclaimer',
+    '.profile-card dd', '.profile-card .legal-note',
+    '.tl-items span',
+    '.footer h2', '.footer p', '.footer-meta span',
+    '.stat-tile .v', '.stat-tile .l',
+    '.demo-foot span', '.example-badge'
+  ].join(',');
+
+  function editableEls(){
+    return Array.prototype.slice.call(document.querySelectorAll(EDIT_SELECTOR));
+  }
+
+  function applySavedEdits(){
+    var raw;
+    try{ raw = localStorage.getItem(STORAGE_KEY); }catch(e){ return; }
+    if(!raw) return;
+    var map;
+    try{ map = JSON.parse(raw); }catch(e){ return; }
+    editableEls().forEach(function(el, i){
+      if(map[i] != null) el.innerHTML = map[i];
+    });
+  }
+
+  function saveEdits(){
+    var map = {};
+    editableEls().forEach(function(el, i){ map[i] = el.innerHTML; });
+    try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(map)); }catch(e){}
+  }
+
+  function showToast(msg){
+    var t = document.getElementById('editToast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(t._hideTimer);
+    t._hideTimer = setTimeout(function(){ t.classList.remove('show'); }, 2200);
+  }
+
+  function enterEditMode(){
+    document.body.classList.add('editing');
+    editableEls().forEach(function(el){ el.setAttribute('data-ed',''); el.contentEditable = 'true'; });
+    document.getElementById('editToolbar').hidden = false;
+  }
+
+  function exitEditMode(){
+    document.body.classList.remove('editing');
+    editableEls().forEach(function(el){ el.removeAttribute('contenteditable'); });
+    document.getElementById('editToolbar').hidden = true;
+  }
+
+  function openPasswordModal(){
+    var backdrop = document.getElementById('editModalBackdrop');
+    backdrop.hidden = false;
+    var input = document.getElementById('editPasswordInput');
+    input.value = '';
+    input.classList.remove('err');
+    input.focus();
+  }
+
+  function closePasswordModal(){
+    document.getElementById('editModalBackdrop').hidden = true;
+  }
+
+  function trySubmitPassword(){
+    var input = document.getElementById('editPasswordInput');
+    if(input.value === EDIT_PASSWORD){
+      closePasswordModal();
+      enterEditMode();
+    } else {
+      input.classList.add('err');
+      input.value = '';
+      setTimeout(function(){ input.classList.remove('err'); }, 350);
+    }
+  }
+
+  document.getElementById('editToggleBtn').addEventListener('click', openPasswordModal);
+  document.getElementById('editModalCancel').addEventListener('click', closePasswordModal);
+  document.getElementById('editModalBackdrop').addEventListener('click', function(e){
+    if(e.target === this) closePasswordModal();
+  });
+  document.getElementById('editModalOk').addEventListener('click', trySubmitPassword);
+  document.getElementById('editPasswordInput').addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ e.preventDefault(); trySubmitPassword(); }
+  });
+  document.getElementById('editSaveBtn').addEventListener('click', function(){
+    saveEdits();
+    showToast('저장되었습니다 (이 브라우저에 보관됩니다)');
+  });
+  document.getElementById('editExitBtn').addEventListener('click', exitEditMode);
+
+  applySavedEdits();
+})();
+</script>
