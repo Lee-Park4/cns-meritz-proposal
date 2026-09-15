@@ -433,22 +433,47 @@
   }
   .edit-toast.show{ opacity:1; }
 
+  /* ---------- PRINT TOC (print-only page) ---------- */
+  .print-toc{ display:none; }
+  .print-page-title{ display:none; }
+
   /* ---------- PRINT / PDF (landscape, one section per page) ---------- */
   @page{ size: A4 landscape; margin: 9mm 11mm; }
   @media print{
-    html{ font-size:13px; }
+    html{ font-size:14px; }
     *{ -webkit-print-color-adjust:exact; print-color-adjust:exact; color-adjust:exact; }
     body{ padding:0; }
     .wrap{ max-width:100%; padding-inline:0; }
     .nav{ position:static; backdrop-filter:none; box-shadow:none; }
+    .nav-row{ padding:8px 0 !important; }
     .nav-links, .nav-cta, .edit-toggle{ display:none !important; }
     .hero-ctas{ display:none !important; }
     .edit-toolbar, .edit-modal-backdrop, .edit-toast{ display:none !important; }
-    .hero, .section-alt, .footer{ margin-inline:0; }
-    section{ padding-block:10px; }
-    section.tight{ padding-block:8px; }
-    .section-head{ margin-bottom:10px; gap:6px; }
+    .hero, .section-alt, .footer{ margin-inline:0 !important; }
+    section{ padding-block:14px; position:relative; }
+    section.tight{ padding-block:10px; }
+    .section-alt{ padding:14px 20px !important; }
+    .section-head{ margin-bottom:14px; gap:8px; break-after:avoid-page; break-inside:avoid-page; }
     a[href^="#"]{ text-decoration:none; color:inherit; }
+
+    /* running page title, top-right corner */
+    .print-page-title{
+      display:block; position:absolute; top:0; right:0;
+      font-family:'Gothic A1',sans-serif; font-weight:700; font-size:0.7rem;
+      letter-spacing:0.04em; color:var(--steel-soft);
+    }
+    .section-alt .print-page-title{ color:rgba(255,255,255,0.55); }
+
+    /* balance top/bottom whitespace: center each page's content in the page box */
+    .hero, section, .footer{
+      display:flex; flex-direction:column; justify-content:center;
+      box-sizing:border-box;
+    }
+    section, .footer{ min-height:191mm; }
+    .hero{ min-height:170mm; }
+    .print-pageframe{ break-before:page; }
+    .footer{ padding:24px 0; }
+    .footer-meta{ margin-top:16px; padding-top:14px; }
 
     .card, .dark-card, .chart-card, .quote-block, .bridge-note, .profile-card,
     .demo-panel, .calc-wrap, .table-scroll, .npay-coupon{
@@ -479,12 +504,14 @@
     .chart-aside{ gap:8px; }
 
     /* tables: compact rows so long tables fit one page */
-    table{ font-size:0.72rem; }
-    thead th{ padding:5px 8px; }
-    tbody td{ padding:4px 8px; }
-    .table-note{ margin-top:6px; }
-    .chip-row{ margin-top:10px; gap:6px; }
-    .chip{ padding:4px 10px; font-size:0.74rem; }
+    table{ font-size:0.66rem; }
+    thead th{ padding:3px 8px; line-height:1.15; }
+    tbody td{ padding:2px 8px; line-height:1.15; }
+    .compare-table{ font-size:0.66rem; }
+    .compare-table th, .compare-table td{ padding:2px 8px; line-height:1.15; }
+    .table-note{ margin-top:4px; }
+    .chip-row{ margin-top:6px; gap:5px; }
+    .chip{ padding:3px 9px; font-size:0.72rem; }
 
     /* timeline: two columns so 11 entries fit one landscape page */
     .profile-grid{ gap:16px; margin-bottom:16px; }
@@ -504,6 +531,18 @@
     input[type="range"]{ display:none; }
     .demo-tabs{ display:none; }
     .demo-table tr[hidden]{ display:none !important; }
+
+    /* table of contents page */
+    .print-toc{
+      display:flex; flex-direction:column; justify-content:center;
+      min-height:192mm; box-sizing:border-box; margin-inline:0;
+      break-before:page; break-after:page;
+    }
+    .toc-list{ list-style:none; margin:24px 0 0; padding:0; display:flex; flex-direction:column; gap:0; max-width:560px; }
+    .toc-list li{ display:flex; align-items:baseline; gap:18px; padding:14px 0; border-top:1px solid var(--line); }
+    .toc-list li:last-child{ border-bottom:1px solid var(--line); }
+    .toc-num{ font-family:'Gothic A1',sans-serif; font-weight:900; font-size:1.1rem; color:var(--accent-deep); width:34px; flex:none; }
+    .toc-label{ font-family:'Gothic A1',sans-serif; font-weight:700; font-size:1.05rem; color:var(--ink); }
   }
 </style>
 
@@ -544,10 +583,27 @@
   </div>
 </header>
 
+<div class="print-toc" aria-hidden="true">
+  <div class="wrap">
+    <div class="eyebrow">목차</div>
+    <h2>제안 구성</h2>
+    <ol class="toc-list">
+      <li><span class="toc-num">01</span><span class="toc-label">제안 배경</span></li>
+      <li><span class="toc-num">02</span><span class="toc-label">비용 &amp; 경쟁력</span></li>
+      <li><span class="toc-num">03</span><span class="toc-label">관제 시스템 &amp; Win-Back</span></li>
+      <li><span class="toc-num">04</span><span class="toc-label">통합 관제 플랫폼 · LinkONE</span></li>
+      <li><span class="toc-num">05</span><span class="toc-label">B2B2C 혁신 리워드 · 원페이</span></li>
+      <li><span class="toc-num">06</span><span class="toc-label">요금 안내</span></li>
+      <li><span class="toc-num">07</span><span class="toc-label">회사 소개</span></li>
+    </ol>
+  </div>
+</div>
+
 <main class="wrap">
 
   <!-- OVERVIEW -->
   <section id="overview">
+    <span class="print-page-title" aria-hidden="true">01 · 제안 배경</span>
     <div class="section-head">
       <div class="eyebrow">제안 배경</div>
       <h2>메리츠캐피탈이 지금 마주한 질문</h2>
@@ -573,6 +629,7 @@
 
   <!-- ADVANTAGE -->
   <section id="advantage" class="tight">
+    <span class="print-page-title" aria-hidden="true">02 · 비용 &amp; 경쟁력</span>
     <div class="section-head">
       <div class="eyebrow">비용 &amp; 경쟁력</div>
       <h2>메리츠캐피탈의 비용 구조를 다시 설계합니다</h2>
@@ -617,6 +674,7 @@
       </div>
     </div>
 
+    <div class="print-pageframe">
     <div class="section-head" style="margin-top:56px;">
       <h2 style="font-size:1.5rem">마이파트너(My Partner) vs 대형 전업사 비교</h2>
       <p>메리츠캐피탈이 실제로 얻게 되는 운영상의 차이입니다.</p>
@@ -651,10 +709,12 @@
       <span class="chip" style="border-color:transparent; background:transparent; color:var(--steel-soft); font-weight:500;">검증된 메이저 제휴 금융사</span>
       <span class="chip">JB우리캐피탈</span><span class="chip">BNK캐피탈</span><span class="chip">롯데캐피탈</span><span class="chip">현대캐피탈</span><span class="chip">우리금융캐피탈/카드</span>
     </div>
+    </div>
   </section>
 
   <!-- CONTROL & WIN-BACK -->
   <section id="control" class="section-alt" style="margin-inline:-20px;">
+    <span class="print-page-title" aria-hidden="true">03 · 관제 시스템 &amp; Win-Back</span>
     <div class="wrap">
       <div class="section-head">
         <div class="eyebrow">관제 시스템 &amp; Win-Back</div>
@@ -707,6 +767,7 @@
 
   <!-- LINKONE -->
   <section id="linkone">
+    <span class="print-page-title" aria-hidden="true">04 · 통합 관제 플랫폼 · LinkONE</span>
     <div class="section-head">
       <div class="eyebrow">통합 관제 플랫폼</div>
       <h2>타 메이저 캐피탈사에서 이미 검증된 B2B 중개 플랫폼, LinkONE</h2>
@@ -749,6 +810,7 @@
       <div class="demo-foot"><span>* LinkONE 시스템은 메리츠캐피탈 ERP와 API 즉시 연동을 지원합니다.</span><span>자동 매칭율 98.6%</span></div>
     </div>
 
+    <div class="print-pageframe">
     <div class="section-head" style="margin-top:56px;">
       <h2 style="font-size:1.4rem">대차를 넘어선 Fleet Life-Cycle 시너지</h2>
       <p>대차 관제를 넘어 메리츠캐피탈 자산 전반의 가치를 극대화하는 3대 핵심 인프라입니다.</p>
@@ -758,10 +820,12 @@
       <div class="card"><div class="icon">💻</div><h3>온라인 공매 플랫폼</h3><p>중도 해지 및 반납 차량을 자체 플랫폼을 통해 투명하게 매각·승계 중개하여 메리츠캐피탈의 자산 처분 손실을 방어합니다.</p></div>
       <div class="card"><div class="icon">🚛</div><h3>전국 정비 &amp; 탁송 인프라</h3><p>우수 협력사로 구성된 전국망을 통해 신속한 차량 회수, 탁송, 정비 입고가 가능한 인프라를 제공합니다.</p></div>
     </div>
+    </div>
   </section>
 
   <!-- 원페이 -->
   <section id="carback" class="section-alt" style="margin-inline:-20px;">
+    <span class="print-page-title" aria-hidden="true">05 · B2B2C 혁신 리워드 · 원페이</span>
     <div class="wrap">
       <div class="section-head">
         <div class="eyebrow">B2B2C 혁신 리워드</div>
@@ -821,6 +885,7 @@
 
   <!-- PRICING -->
   <section id="pricing">
+    <span class="print-page-title" aria-hidden="true">06 · 요금 안내</span>
     <div class="section-head">
       <div class="eyebrow">요금 안내</div>
       <h2>차종별 대차 요금 기준</h2>
@@ -857,6 +922,7 @@
 
   <!-- COMPANY -->
   <section id="company">
+    <span class="print-page-title" aria-hidden="true">07 · 회사 소개</span>
     <div class="section-head">
       <div class="eyebrow">회사 소개</div>
       <h2>마이파트너(My Partner)를 소개합니다</h2>
