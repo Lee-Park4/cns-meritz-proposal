@@ -490,125 +490,33 @@
   .print-toc{ display:none; }
   .print-page-title{ display:none; }
 
-  /* ---------- PRINT / PDF (landscape, one section per page) ---------- */
-  @page{ size: A4 landscape; margin: 9mm 11mm; }
+  /* ---------- PRINT / PDF (landscape, natural flow matching the live page) ---------- */
+  @page{ size: A4 landscape; margin: 12mm 14mm; }
   @media print{
-    html{ font-size:14px; }
     *{ -webkit-print-color-adjust:exact; print-color-adjust:exact; color-adjust:exact; }
     body{ padding:0; }
     .wrap{ max-width:100%; padding-inline:0; }
     .nav{ position:static; backdrop-filter:none; box-shadow:none; }
-    .nav-row{ padding:8px 0 !important; }
     .nav-links, .nav-cta, .edit-toggle{ display:none !important; }
     .hero-ctas{ display:none !important; }
     .edit-toolbar, .edit-modal-backdrop, .edit-toast{ display:none !important; }
     .hero, .section-alt, .footer{ margin-inline:0 !important; }
-    section{ padding-block:14px; position:relative; }
-    section.tight{ padding-block:10px; }
-    .section-alt{ padding:14px 20px !important; }
-    .section-head{ margin-bottom:14px; gap:8px; break-after:avoid-page; break-inside:avoid-page; }
+    .section-head{ break-after:avoid-page; break-inside:avoid-page; }
     a[href^="#"]{ text-decoration:none; color:inherit; }
 
-    /* running page title, top-right corner */
-    .print-page-title{
-      display:block; position:absolute; top:0; right:0;
-      font-family:'Gothic A1',sans-serif; font-weight:700; font-size:0.7rem;
-      letter-spacing:0.04em; color:var(--steel-soft);
-    }
-    .section-alt .print-page-title{ color:rgba(255,255,255,0.55); }
-
-    /* balance top/bottom whitespace: center each page's content in the page box */
-    .hero, section, .footer{
-      display:flex; flex-direction:column; justify-content:center;
-      box-sizing:border-box;
-    }
-    section, .footer{ min-height:191mm; }
-    .hero{ min-height:170mm; }
-    .print-pageframe{ break-before:page; }
-    .footer{ padding:24px 0; }
-    .footer-meta{ margin-top:16px; padding-top:14px; }
-
+    /* keep individual components intact; let pages break naturally between them */
     .card, .dark-card, .chart-card, .quote-block, .bridge-note, .profile-card,
-    .demo-panel, .calc-wrap, .table-scroll, .npay-coupon, .flow-step, .flow-diff{
+    .demo-panel, .calc-wrap, .npay-coupon, .flow-step, .flow-diff{
       break-inside:avoid;
     }
-    .card-grid, .stat-row, .flow-row{ break-inside:avoid; }
-    .flow-wrap{ padding:14px 16px; }
-    .flow-map{ gap:6px; }
-    .flow-row{ gap:6px; }
-    .flow-step{ padding:8px 10px; }
-    .flow-row-3 .flow-step{ padding:8px 10px; }
-    .flow-step h3{ font-size:0.78rem; }
-    .flow-step p{ font-size:0.66rem; margin-top:3px; }
-    .flow-step .flow-sub{ font-size:0.6rem; margin-top:3px; }
-    .flow-label{ margin-bottom:8px; }
-    .flow-note{ margin-top:8px; font-size:0.68rem; }
-    .flow-diff{ margin-top:8px; padding:8px 12px; }
-    .flow-diff-label{ margin-bottom:5px; }
-    .flow-diff-chip{ font-size:0.66rem; }
+    .card-grid, .stat-row, .flow-row, .flow-map{ break-inside:avoid; }
+    .flow-step{ opacity:1 !important; transform:none !important; animation:none !important; }
     thead{ display:table-header-group; }
     tr{ break-inside:avoid; }
-    #overview, #advantage, #control, #linkone, #carback, #pricing, #company{ break-before:page; }
-
-    /* tighten vertical rhythm everywhere */
-    .card{ padding:10px; gap:4px; }
-    .dark-card{ padding:10px; gap:4px; }
-    .card-grid{ gap:8px; }
-    .card p, .dark-card p{ font-size:0.8rem; line-height:1.35; }
-    .benefit-list{ gap:5px; }
-    .benefit-list li{ align-items:baseline; }
-    .benefit-list p{ font-size:0.82rem; line-height:1.35; }
-    .benefit-list .t{ font-size:0.9rem; }
-    .quote-block, .bridge-note{ padding:14px 18px; }
-    .bridge{ margin-top:14px; gap:18px; }
-
-    /* chart: shorter bars, tighter card */
-    .chart-card{ padding:14px 16px; gap:16px; }
-    .chart{ height:140px; }
-    .chart-legend{ margin-bottom:10px; }
-    .chart-aside .big{ font-size:2rem; }
-    .chart-aside{ gap:8px; }
-
-    /* tables: compact rows so long tables fit one page */
-    table{ font-size:0.66rem; }
-    thead th{ padding:3px 8px; line-height:1.15; }
-    tbody td{ padding:2px 8px; line-height:1.15; }
-    .compare-table{ font-size:0.66rem; }
-    .compare-table th, .compare-table td{ padding:2px 8px; line-height:1.15; }
-    .table-note{ margin-top:4px; }
-    .chip-row{ margin-top:6px; gap:5px; }
-    .chip{ padding:3px 9px; font-size:0.72rem; }
-
-    /* timeline: two columns so 11 entries fit one landscape page */
-    .profile-grid{ gap:16px; margin-bottom:16px; }
-    .timeline{ column-count:2; column-gap:22px; }
-    .tl-row{ break-inside:avoid; padding:8px 0; }
-    .tl-items span{ font-size:0.8rem; }
-
-    /* demo panel + calculator: compact */
-    .demo-head{ padding:8px 14px; }
-    .demo-kpis div{ padding:6px 12px; }
-    .demo-table th, .demo-table td{ padding:3px 12px; }
-    .demo-foot{ padding:6px 14px; }
-    .calc-intro, .calc-form{ padding:16px; gap:10px; }
-    [style*="margin-top:56px"]{ margin-top:16px !important; }
-    [style*="margin-bottom:26px"]{ margin-bottom:12px !important; }
 
     input[type="range"]{ display:none; }
     .demo-tabs{ display:none; }
     .demo-table tr[hidden]{ display:none !important; }
-
-    /* table of contents page */
-    .print-toc{
-      display:flex; flex-direction:column; justify-content:center;
-      min-height:192mm; box-sizing:border-box; margin-inline:0;
-      break-before:page; break-after:page;
-    }
-    .toc-list{ list-style:none; margin:24px 0 0; padding:0; display:flex; flex-direction:column; gap:0; max-width:560px; }
-    .toc-list li{ display:flex; align-items:baseline; gap:18px; padding:14px 0; border-top:1px solid var(--line); }
-    .toc-list li:last-child{ border-bottom:1px solid var(--line); }
-    .toc-num{ font-family:'Gothic A1',sans-serif; font-weight:900; font-size:1.1rem; color:var(--accent-deep); width:34px; flex:none; }
-    .toc-label{ font-family:'Gothic A1',sans-serif; font-weight:700; font-size:1.05rem; color:var(--ink); }
   }
 </style>
 
