@@ -491,8 +491,9 @@
   .print-page-title{ display:none; }
 
   /* ---------- PRINT / PDF (landscape, natural flow matching the live page) ---------- */
-  @page{ size: A4 landscape; margin: 12mm 14mm; }
+  @page{ size: A4 landscape; margin: 10mm 12mm; }
   @media print{
+    html{ font-size:14px; }
     *{ -webkit-print-color-adjust:exact; print-color-adjust:exact; color-adjust:exact; }
     body{ padding:0; }
     .wrap{ max-width:100%; padding-inline:0; }
