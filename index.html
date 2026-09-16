@@ -227,6 +227,59 @@
   .pill{ display:inline-block; font-size:0.72rem; font-weight:700; padding:4px 11px; border-radius:999px; }
   .pill-accent{ background:rgba(238,55,34,0.18); color:#ff9d84; }
 
+  /* ---------- PROCESS FLOW MAP ---------- */
+  .flow-wrap{
+    background:var(--paper-raised); border:1px solid var(--line); border-radius:16px;
+    padding:26px clamp(18px,3vw,32px); margin-bottom:28px;
+  }
+  .flow-label{ font-size:0.78rem; font-weight:800; letter-spacing:0.04em; color:var(--accent-deep); margin-bottom:14px; }
+  .flow-map{ display:flex; flex-direction:column; gap:10px; }
+  .flow-row{ display:grid; gap:10px; }
+  .flow-row-4{ grid-template-columns:repeat(4,minmax(0,1fr)); }
+  .flow-row-3{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .flow-step{
+    min-width:0; background:var(--paper); border:1px solid var(--line); border-top:3px solid var(--accent);
+    border-radius:14px; padding:16px 14px; opacity:0; transform:translateY(14px);
+  }
+  .flow-row-3 .flow-step{ border-top-color:var(--navy); padding:18px 16px; }
+  .flow-step .flow-badge{
+    width:24px; height:24px; margin-bottom:8px; border-radius:50%; background:var(--accent); color:#fff;
+    font-weight:900; font-size:0.74rem; display:flex; align-items:center; justify-content:center;
+  }
+  .flow-row-3 .flow-badge{ background:var(--navy); }
+  .flow-step h3{ color:var(--ink); font-size:0.92rem; }
+  .flow-step p{ color:var(--steel); font-size:0.78rem; margin-top:6px; line-height:1.5; }
+  .flow-step .flow-sub{ color:var(--steel-soft); font-size:0.72rem; margin-top:6px; line-height:1.5; }
+  .flow-step.in-view{ animation:flowIn 0.5s ease forwards, flowFlash 0.7s ease forwards; }
+  @keyframes flowIn{ to{ opacity:1; transform:translateY(0); } }
+  @keyframes flowFlash{
+    0%{ box-shadow:0 0 0 0 color-mix(in srgb, var(--accent) 0%, transparent); }
+    35%{ box-shadow:0 0 0 7px color-mix(in srgb, var(--accent) 25%, transparent); }
+    100%{ box-shadow:0 0 0 0 color-mix(in srgb, var(--accent) 0%, transparent); }
+  }
+  .flow-capstone{
+    display:flex; align-items:center; gap:16px; flex-wrap:wrap;
+    background:var(--accent-tint); border:1px solid color-mix(in srgb, var(--accent) 30%, transparent); border-top:1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  }
+  .flow-capstone .flow-badge{ flex:none; width:30px; height:30px; font-size:0.85rem; margin-bottom:0; }
+  .flow-capstone h3{ font-size:1rem; }
+  .flow-capstone p{ color:var(--ink-soft); font-size:0.84rem; }
+  .flow-sub-inline{ color:var(--steel-soft); font-size:0.78rem; }
+  .flow-note{ margin-top:16px; font-size:0.84rem; color:var(--steel-soft); }
+  .flow-diff{ margin-top:14px; background:var(--paper-sunken); border:1px dashed var(--line-strong); border-radius:14px; padding:14px 18px; }
+  .flow-diff-label{ font-size:0.72rem; font-weight:800; letter-spacing:0.03em; color:var(--accent-deep); margin-bottom:8px; }
+  .flow-diff-list{ display:flex; flex-wrap:wrap; gap:8px 22px; }
+  .flow-diff-chip{ font-size:0.8rem; color:var(--ink-soft); }
+  .flow-diff-chip b{ color:var(--positive); margin-right:5px; }
+  @media screen and (max-width:900px){
+    .flow-row-4{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .flow-row-3{ grid-template-columns:repeat(1,minmax(0,1fr)); }
+  }
+  @media screen and (max-width:520px){
+    .flow-row-4{ grid-template-columns:1fr; }
+    .flow-capstone{ flex-direction:column; align-items:flex-start; }
+  }
+
   /* ---------- ALT SECTION ---------- */
   .section-alt{ background:var(--navy); color:#e7e5e0; margin:0 -20px; padding:76px 20px; }
   .section-alt .wrap{ }
@@ -476,10 +529,23 @@
     .footer-meta{ margin-top:16px; padding-top:14px; }
 
     .card, .dark-card, .chart-card, .quote-block, .bridge-note, .profile-card,
-    .demo-panel, .calc-wrap, .table-scroll, .npay-coupon{
+    .demo-panel, .calc-wrap, .table-scroll, .npay-coupon, .flow-step, .flow-diff{
       break-inside:avoid;
     }
-    .card-grid, .stat-row{ break-inside:avoid; }
+    .card-grid, .stat-row, .flow-row{ break-inside:avoid; }
+    .flow-wrap{ padding:14px 16px; }
+    .flow-map{ gap:6px; }
+    .flow-row{ gap:6px; }
+    .flow-step{ padding:8px 10px; }
+    .flow-row-3 .flow-step{ padding:8px 10px; }
+    .flow-step h3{ font-size:0.78rem; }
+    .flow-step p{ font-size:0.66rem; margin-top:3px; }
+    .flow-step .flow-sub{ font-size:0.6rem; margin-top:3px; }
+    .flow-label{ margin-bottom:8px; }
+    .flow-note{ margin-top:8px; font-size:0.68rem; }
+    .flow-diff{ margin-top:8px; padding:8px 12px; }
+    .flow-diff-label{ margin-bottom:5px; }
+    .flow-diff-chip{ font-size:0.66rem; }
     thead{ display:table-header-group; }
     tr{ break-inside:avoid; }
     #overview, #advantage, #control, #linkone, #carback, #pricing, #company{ break-before:page; }
@@ -720,6 +786,52 @@
         <div class="eyebrow">관제 시스템 &amp; Win-Back</div>
         <h2>사고 그 순간부터, 메리츠캐피탈 고객을 지킵니다</h2>
         <p class="measure">사고 발생 시 5분 이내 초동 대응부터 사설 렉카 개입으로 인한 자산 유실 차단까지, 메리츠캐피탈의 자산 보호와 고객 만족을 이끄는 실시간 운영 프로세스입니다.</p>
+      </div>
+
+      <div class="flow-wrap">
+        <div class="flow-label">PROCESS FLOW · 접수부터 정산까지</div>
+        <div class="flow-map" id="flowMap">
+          <div class="flow-row flow-row-4">
+            <div class="flow-step"><div class="flow-badge">1</div><h3>대표전화 접수</h3><p>메리츠캐피탈 대표전화로<br>사고 접수</p></div>
+            <div class="flow-step"><div class="flow-badge">2</div><h3>정보 전달</h3><p>API 연동 또는 SMS·알림톡으로<br>마이파트너에 즉시 전달</p></div>
+            <div class="flow-step"><div class="flow-badge">3</div><h3>자동 배정</h3><p>플랫폼 등록 후<br>최근접 제휴업체 자동배정</p></div>
+            <div class="flow-step"><div class="flow-badge">4</div><h3>초기 안전조치</h3><p>접수 5분 내 컨택,<br>비제휴사 자산유실 방지</p></div>
+          </div>
+          <div class="flow-row flow-row-3">
+            <div class="flow-step">
+              <div class="flow-badge">5</div><h3>배차</h3>
+              <p>고객과 협의한 시간·장소로<br>대차차량 배차</p>
+              <p class="flow-sub">· 요구사항·전달사항 빠짐없이 메모<br>· 입고 이동 전 차량 실내외 전체 촬영</p>
+            </div>
+            <div class="flow-step">
+              <div class="flow-badge">6</div><h3>입고 딜리버리</h3>
+              <p>사고차량, 지정 제휴공업사로<br>무상 딜리버리</p>
+              <p class="flow-sub">· 입고 시 출고예상일 확인 후 고객 피드백</p>
+            </div>
+            <div class="flow-step">
+              <div class="flow-badge">7</div><h3>반납 딜리버리</h3>
+              <p>수리 완료 후 제휴공업사에서<br>고객 위치로 무상 반납</p>
+              <p class="flow-sub">· 출고 전 사고부위 체크 · 검수대행</p>
+            </div>
+          </div>
+          <div class="flow-step flow-capstone">
+            <div class="flow-badge">8</div>
+            <div>
+              <h3>정산 · N Pay</h3>
+              <p>반납일로부터 최대 2주 이내 N Pay 포인트 지급, 해피콜(10문항 내외)로 만족도 확인까지 마무리합니다. <span class="flow-sub-inline">설문 내용은 고객사 요청에 따라 변동 적용 가능합니다.</span></p>
+            </div>
+          </div>
+        </div>
+        <p class="flow-note">* 제주 등 특수지역 지연이나 사설 렉카 개입 등 예외 상황 발생 시, 아래 Win-Back 케어 솔루션이 즉시 개입합니다.</p>
+        <div class="flow-diff">
+          <div class="flow-diff-label">마이파트너만의 차별화 포인트</div>
+          <div class="flow-diff-list">
+            <span class="flow-diff-chip"><b>✓</b>입고 전 차량 실내외 전체 촬영 · 분쟁 예방</span>
+            <span class="flow-diff-chip"><b>✓</b>입고 시 출고예상일 사전 피드백</span>
+            <span class="flow-diff-chip"><b>✓</b>출고 전 사고부위 검수대행</span>
+            <span class="flow-diff-chip"><b>✓</b>반납 후 해피콜 · 고객사 맞춤 설문 반영</span>
+          </div>
+        </div>
       </div>
 
       <div class="card-grid">
@@ -1055,7 +1167,8 @@
     '.tl-items span',
     '.footer h2', '.footer p', '.footer-meta span',
     '.stat-tile .v', '.stat-tile .l',
-    '.demo-foot span', '.example-badge'
+    '.demo-foot span', '.example-badge',
+    '.flow-label', '.flow-step h3', '.flow-step p', '.flow-note'
   ].join(',');
 
   function editableEls(){
@@ -1140,5 +1253,33 @@
   document.getElementById('editExitBtn').addEventListener('click', exitEditMode);
 
   applySavedEdits();
+})();
+</script>
+
+<script>
+(function(){
+  var map = document.getElementById('flowMap');
+  if(!map) return;
+  var steps = Array.prototype.slice.call(map.querySelectorAll('.flow-step'));
+  var played = false;
+
+  function playSequence(){
+    if(played) return;
+    played = true;
+    steps.forEach(function(el, i){
+      setTimeout(function(){ el.classList.add('in-view'); }, i * 180);
+    });
+  }
+
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){ playSequence(); io.disconnect(); }
+      });
+    }, { threshold:0.35 });
+    io.observe(map);
+  } else {
+    playSequence();
+  }
 })();
 </script>
